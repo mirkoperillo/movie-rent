@@ -1,7 +1,7 @@
 Spike result putting together some technologies
 
 # Tech stack
-* Spring 4.x + Spring data jpa
+* Spring 5.x + Spring data jpa
 * [Spark-java](https://github.com/perwendel/spark)
 * [Jjwt](https://github.com/jwtk/jjwt)
 
