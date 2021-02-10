@@ -1,6 +1,7 @@
 package eu.owlcode.movie_rent.service;
 
 import java.util.Collections;
+import java.util.Optional;
 import java.util.Set;
 
 import javax.transaction.Transactional;
@@ -22,9 +23,9 @@ public class MovieServiceImpl implements MovieService {
     @Override
     @Transactional
     public Set<MovieBean> getRents(String username) {
-        User user = userRepo.findOne(username);
-        if (user != null) {
-            return Converter.convert(user.getRents());
+        Optional<User> user = userRepo.findById(username);
+        if (user.isPresent()) {
+            return Converter.convert(user.get().getRents());
         } else {
             return Collections.emptySet();
         }

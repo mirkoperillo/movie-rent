@@ -30,7 +30,7 @@ public class DataServiceImpl implements DataService {
 
     @Override
     public void insertSampleData() {
-        if (userRepo.findOne("s.spielberg") == null) {
+        if (userRepo.findById("s.spielberg").isEmpty()) {
             User user1 = new User();
             user1.setUsername("s.spielberg");
             user1.setPassword("ET");
@@ -38,7 +38,7 @@ public class DataServiceImpl implements DataService {
             userRepo.save(user1);
         }
 
-        if (userRepo.findOne("c.nolan") == null) {
+        if (userRepo.findById("c.nolan").isEmpty()) {
             User user1 = new User();
             user1.setUsername("c.nolan");
             user1.setPassword("batman");
@@ -60,7 +60,7 @@ public class DataServiceImpl implements DataService {
         movie.setDurationInMinute(152);
         rents.add(movie);
 
-        movieRepo.save(rents);
+        movieRepo.saveAll(rents);
         return rents;
     }
 
@@ -76,7 +76,7 @@ public class DataServiceImpl implements DataService {
         movie.setDurationInMinute(124);
         rents.add(movie);
 
-        movieRepo.save(rents);
+        movieRepo.saveAll(rents);
         return rents;
     }
 
